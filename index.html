@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santiago Sanchez Caspani — AI Engineer Portfolio</title>
+<meta name="description" content="Portfolio of Santiago Sanchez Caspani: conversational AI agents, RAG, computer vision and automation. Real projects, real clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0d; --bg2:#111115; --card:#15151a; --line:#26262d;
+  --text:#ecebe6; --muted:#9a998f; --accent:#d9b36c; --accent2:#7fd1b9;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,11,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:'Bebas Neue';font-size:22px;letter-spacing:.08em}
+.logo span{color:var(--accent)}
+nav .links{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--muted)}
+nav .links a:hover{color:var(--text)}
+.lang{border:1px solid var(--line);background:none;color:var(--text);padding:4px 10px;border-radius:999px;font:inherit;font-size:12px;cursor:pointer}
+.lang:hover{border-color:var(--accent)}
+.hero{min-height:88vh;display:flex;align-items:center;padding:60px 0;
+  background:radial-gradient(900px 400px at 85% 10%,rgba(217,179,108,.10),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(127,209,185,.07),transparent 60%)}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:'Bebas Neue';font-weight:400;font-size:clamp(54px,11vw,128px);line-height:.95;letter-spacing:.02em;margin:14px 0 18px}
+.sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3.2vw,32px);color:#d8d6cc;max-width:760px}
+.lead{color:var(--muted);max-width:640px;margin-top:18px;font-size:16px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{padding:11px 20px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:500;transition:.2s}
+.btn.primary{background:var(--accent);color:#16120a;border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:48px}
+.stat{background:var(--bg2);padding:20px}
+.stat b{font-family:'Bebas Neue';font-size:38px;font-weight:400;color:var(--accent);letter-spacing:.03em;display:block;line-height:1.1}
+.stat span{font-size:13px;color:var(--muted)}
+section{padding:84px 0;border-top:1px solid var(--line)}
+h2{font-family:'Bebas Neue';font-weight:400;font-size:clamp(38px,6vw,64px);letter-spacing:.03em;line-height:1}
+.sec-sub{color:var(--muted);margin:10px 0 36px;max-width:640px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;transition:.25s}
+.card:hover{border-color:#3a3a44;transform:translateY(-2px)}
+.card.big{grid-column:1/-1}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.kind{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2)}
+.card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;line-height:1.15}
+.card p{color:#c9c8bf;font-size:14.5px}
+.card ul{list-style:none;display:grid;gap:6px}
+.card li{font-size:14px;color:#c9c8bf;padding-left:18px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--accent)}
+.card .foot{margin-top:auto;padding-top:6px;display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-size:13px;color:var(--accent);border-bottom:1px solid transparent}
+.pill:hover{border-color:var(--accent)}
+.note{font-size:12.5px;color:var(--muted);font-style:italic}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:4px 0}
+.node{font-size:12.5px;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg2)}
+.node.hl{border-color:var(--accent);color:var(--accent)}
+.arrow{color:var(--muted);font-size:14px}
+.two{display:grid;gap:28px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.two{grid-template-columns:1fr}nav .links a.hide{display:none}}
+.skills{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.skill h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+.skill p{font-size:14px;color:#c9c8bf}
+.edu li{margin-bottom:10px}
+footer{padding:44px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+[data-lang]{display:none}
+html[lang=en] [data-lang=en],html[lang=es] [data-lang=es]{display:revert}
+html[lang=en] span[data-lang=en],html[lang=es] span[data-lang=es],html[lang=en] b[data-lang=en],html[lang=es] b[data-lang=es]{display:inline}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">S<span>.</span>SANCHEZ</a>
+  <div class="links">
+    <a class="hide" href="#projects"><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></a>
+    <a class="hide" href="#skills"><span data-lang="en">Skills</span><span data-lang="es">Skills</span></a>
+    <a class="hide" href="#education"><span data-lang="en">Education</span><span data-lang="es">Formación</span></a>
+    <button class="lang" id="langBtn" aria-label="Switch language">ES</button>
+  </div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="eyebrow"><span data-lang="en">AI Engineer · Generative AI · Automation</span><span data-lang="es">AI Engineer · IA Generativa · Automatización</span></div>
+  <h1>Santiago<br>Sanchez Caspani</h1>
+  <p class="sub"><span data-lang="en">I build AI agents that talk to real customers, 24/7, and make money for real businesses.</span><span data-lang="es">Construyo agentes de IA que hablan con clientes reales, 24/7, y generan resultados para negocios reales.</span></p>
+  <p class="lead"><span data-lang="en">Based in Buenos Aires, working remotely. Everything below was shipped to real clients or built as hands-on practice: conversational agents, RAG, computer vision and the web layer around them. Client names and data are intentionally left out.</span><span data-lang="es">Desde Buenos Aires, en remoto. Todo lo que ves acá se entregó a clientes reales o se construyó como práctica: agentes conversacionales, RAG, visión por computadora y la capa web alrededor. Los nombres y datos de clientes se omiten a propósito.</span></p>
+  <div class="cta">
+    <a class="btn primary" href="#projects"><span data-lang="en">See the projects</span><span data-lang="es">Ver proyectos</span></a>
+    <a class="btn" href="https://github.com/SantiagoSanchezAI" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/santiago-sanchez-ai" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>40+</b><span><span data-lang="en">customer conversations handled per day, per agent</span><span data-lang="es">conversaciones de clientes por día, por agente</span></span></div>
+    <div class="stat"><b>&lt;3 s</b><span><span data-lang="en">average response time</span><span data-lang="es">tiempo de respuesta promedio</span></span></div>
+    <div class="stat"><b>&lt;15 min</b><span><span data-lang="en">to onboard a new client, no code changes</span><span data-lang="es">para incorporar un cliente nuevo, sin tocar código</span></span></div>
+    <div class="stat"><b>100+</b><span><span data-lang="en">personalized demos delivered in 2 countries</span><span data-lang="es">demos personalizadas entregadas en 2 países</span></span></div>
+  </div>
+</div></header>
+
+<section id="projects"><div class="wrap">
+  <h2><span data-lang="en">Projects</span><span data-lang="es">Proyectos</span></h2>
+  <p class="sec-sub"><span data-lang="en">Production work first, then open source and coursework. Where a client was involved, the case is anonymized.</span><span data-lang="es">Primero trabajo en producción, después open source y proyectos académicos. Donde hubo un cliente, el caso está anonimizado.</span></p>
+
+  <div class="grid">
+
+    <article class="card big">
+      <div class="kind"><span data-lang="en">Production · Real paying clients</span><span data-lang="es">Producción · Clientes reales que pagan</span></div>
+      <h3><span data-lang="en">24/7 conversational agent for WhatsApp &amp; Instagram</span><span data-lang="es">Agente conversacional 24/7 para WhatsApp e Instagram</span></h3>
+      <div class="two">
+        <div>
+          <p><span data-lang="en">A sales and support agent for restaurants and gyms. It answers questions, qualifies leads, confirms reservations and hands hot leads to the owner in real time, with no human in the loop for routine conversations.</span><span data-lang="es">Un agente de ventas y atención para restaurantes y gimnasios. Responde consultas, califica leads, confirma reservas y avisa al dueño en tiempo real cuando hay un lead caliente, sin intervención humana en las conversaciones de rutina.</span></p>
+          <ul style="margin-top:14px">
+            <li><span data-lang="en">Persistent conversational memory per customer</span><span data-lang="es">Memoria conversacional persistente por cliente</span></li>
+            <li><span data-lang="en">Lead scoring HOT / WARM / COLD with instant owner notification</span><span data-lang="es">Scoring de leads HOT / WARM / COLD con aviso inmediato al dueño</span></li>
+            <li><span data-lang="en">Modular prompt architecture reused across industries</span><span data-lang="es">Arquitectura de prompts modular reutilizada entre rubros</span></li>
+            <li><span data-lang="en">Zero after-hours leads lost</span><span data-lang="es">Cero leads perdidos fuera de horario</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="note" style="margin-bottom:8px"><span data-lang="en">How a message flows</span><span data-lang="es">Cómo viaja un mensaje</span></div>
+          <div class="flow">
+            <span class="node">WhatsApp / IG</span><span class="arrow">→</span>
+            <span class="node">UltraMsg</span><span class="arrow">→</span>
+            <span class="node hl">Make</span><span class="arrow">→</span>
+            <span class="node hl">OpenAI API</span><span class="arrow">→</span>
+            <span class="node">Reply</span>
+          </div>
+          <div class="flow">
+            <span class="node">Memory</span><span class="arrow">+</span>
+            <span class="node">Lead score</span><span class="arrow">→</span>
+            <span class="node">Owner alert</span>
+          </div>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="tag">Make</span><span class="tag">OpenAI API</span><span class="tag">UltraMsg</span><span class="tag">WhatsApp</span><span class="tag">Instagram DM</span><span class="tag">Railway</span><span class="tag">Prompt engineering</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Production · Fitness industry</span><span data-lang="es">Producción · Rubro fitness</span></div>
+      <h3><span data-lang="en">Gym lead follow-up bot</span><span data-lang="es">Bot de seguimiento de leads para gimnasios</span></h3>
+      <p><span data-lang="en">Automatic follow-up for gym leads: first reply in seconds, scheduled nudges, and a handoff to the sales team when the lead is ready. Built with Make and Claude Code.</span><span data-lang="es">Seguimiento automático de leads de gimnasio: primera respuesta en segundos, recordatorios programados y traspaso al equipo comercial cuando el lead está listo. Hecho con Make y Claude Code.</span></p>
+      <div class="tag-row"><span class="tag">Make</span><span class="tag">Claude Code</span><span class="tag">Lead nurturing</span></div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Open source · Python</span><span data-lang="es">Open source · Python</span></div>
+      <h3>Rag-Restaurante</h3>
+      <p><span data-lang="en">A RAG assistant that answers questions about a restaurant (menu, prices, hours, reservations) only from the business's own documents, so it doesn't invent answers. The owner updates information by editing a text file.</span><span data-lang="es">Un asistente RAG que responde sobre un restaurante (carta, precios, horarios, reservas) solo con los documentos del propio negocio, para no inventar respuestas. El dueño actualiza la información editando un archivo de texto.</span></p>
+      <ul>
+        <li><span data-lang="en">Local embeddings with sentence-transformers, cosine similarity in NumPy</span><span data-lang="es">Embeddings locales con sentence-transformers, similitud coseno con NumPy</span></li>
+        <li><span data-lang="en">Retrieval pipeline written in code, no third-party vector DB</span><span data-lang="es">Pipeline de recuperación escrito en código, sin base vectorial de terceros</span></li>
+      </ul>
+      <div class="tag-row"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Claude API</span><span class="tag">Embeddings</span></div>
+      <div class="foot"><a class="pill" href="https://github.com/SantiagoSanchezAI/Rag-Restaurante" target="_blank" rel="noopener">GitHub →</a></div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Web · Client work</span><span data-lang="es">Web · Trabajo para clientes</span></div>
+      <h3><span data-lang="en">Premium restaurant websites</span><span data-lang="es">Sitios web premium para restaurantes</span></h3>
+      <p><span data-lang="en">A dark, editorial design system for hospitality: full-viewport sections, display typography, and mobile-first layouts. Delivered as fast static sites for restaurants in Buenos Aires.</span><span data-lang="es">Un sistema de diseño oscuro y editorial para gastronomía: secciones a pantalla completa, tipografía display y layouts mobile-first. Entregados como sitios estáticos rápidos para restaurantes de Buenos Aires.</span></p>
+      <ul>
+        <li><span data-lang="en">Reusable design standard across clients</span><span data-lang="es">Estándar de diseño reutilizable entre clientes</span></li>
+        <li><span data-lang="en">Deployed on Netlify, Vercel and GitHub Pages</span><span data-lang="es">Desplegados en Netlify, Vercel y GitHub Pages</span></li>
+      </ul>
+      <div class="tag-row"><span class="tag">HTML / CSS / JS</span><span class="tag">Netlify</span><span class="tag">Vercel</span><span class="tag">GitHub Pages</span></div>
+      <div class="note"><span data-lang="en">Client names and screenshots withheld.</span><span data-lang="es">Nombres y capturas de clientes reservados.</span></div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Web · Client work</span><span data-lang="es">Web · Trabajo para clientes</span></div>
+      <h3><span data-lang="en">Digital menu for a cantina</span><span data-lang="es">Menú digital para una cantina</span></h3>
+      <p><span data-lang="en">A mobile menu customers open from a QR code. I handled logo conversion, a fix for link colours in iOS Safari and compatibility with dark mode, so it looks right on any phone.</span><span data-lang="es">Un menú móvil que el cliente abre desde un QR. Me ocupé de la conversión del logo, un arreglo de colores de links en iOS Safari y la compatibilidad con modo oscuro, para que se vea bien en cualquier celular.</span></p>
+      <div class="tag-row"><span class="tag">HTML / CSS</span><span class="tag">iOS Safari</span><span class="tag">Dark mode</span></div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Business development · Outreach</span><span data-lang="es">Desarrollo de negocio · Prospección</span></div>
+      <h3><span data-lang="en">100+ personalized demos in two countries</span><span data-lang="es">+100 demos personalizadas en dos países</span></h3>
+      <p><span data-lang="en">For each prospect I built a working demo site or bot using their public brand style, across several neighbourhoods of Buenos Aires and in Turin, Italy. Selling by showing the product, not describing it.</span><span data-lang="es">Para cada prospecto armé un sitio o bot de demostración con su estilo de marca público, en varios barrios de Buenos Aires y en Turín, Italia. Vender mostrando el producto, no describiéndolo.</span></p>
+      <div class="tag-row"><span class="tag">Rapid prototyping</span><span class="tag">Sales demos</span><span class="tag">Remote outreach</span></div>
+    </article>
+
+    <article class="card">
+      <div class="kind"><span data-lang="en">Computer vision · Coursework</span><span data-lang="es">Visión por computadora · Académico</span></div>
+      <h3><span data-lang="en">PPE object detection with YOLO</span><span data-lang="es">Detección de EPP con YOLO</span></h3>
+      <p><span data-lang="en">Trained and evaluated a YOLO model (Ultralytics) to detect personal protective equipment: dataset selection, training, inference testing and performance analysis.</span><span data-lang="es">Entrené y evalué un modelo YOLO (Ultralytics) para detectar elementos de protección personal: selección de dataset, entrenamiento, pruebas de inferencia y análisis de rendimiento.</span></p>
+      <div class="tag-row"><span class="tag">YOLO</span><span class="tag">Ultralytics</span><span class="tag">Python</span><span class="tag">UTN</span></div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sec-sub"><span data-lang="en">The tools I actually use to ship.</span><span data-lang="es">Las herramientas que uso para entregar.</span></p>
+  <div class="skills">
+    <div class="skill"><h4>AI &amp; LLMs</h4><p>OpenAI API, Claude, advanced prompt engineering, RAG with local embeddings, agents &amp; MCP</p></div>
+    <div class="skill"><h4>Computer Vision</h4><p>YOLO (Ultralytics), object detection, dataset preparation</p></div>
+    <div class="skill"><h4>Automation</h4><p>Make, n8n, WhatsApp Business API, Instagram DM API</p></div>
+    <div class="skill"><h4>Dev &amp; Deploy</h4><p>Python, HTML/CSS/JS, Git/GitHub, Railway, Netlify, Vercel</p></div>
+    <div class="skill"><h4><span data-lang="en">Languages</span><span data-lang="es">Idiomas</span></h4><p><span data-lang="en">Spanish (native), English B2, Italian A2</span><span data-lang="es">Español (nativo), inglés B2, italiano A2</span></p></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2><span data-lang="en">Education</span><span data-lang="es">Formación</span></h2>
+  <ul class="edu" style="list-style:none;margin-top:26px;color:#c9c8bf">
+    <li><b>UTN</b> — <span data-lang="en">Diplomatura in Artificial Intelligence (completed 2026): machine learning, deep learning fundamentals, applied AI for business.</span><span data-lang="es">Diplomatura en Inteligencia Artificial (completada 2026): machine learning, fundamentos de deep learning, IA aplicada a negocios.</span></li>
+    <li><b>UTN</b> — <span data-lang="en">Diplomatura in Generative AI (in progress): chatbots &amp; agents, advanced prompt engineering, AI agents &amp; MCP, process automation, image/video generation.</span><span data-lang="es">Diplomatura en IA Generativa (en curso): chatbots y agentes, prompt engineering avanzado, agentes de IA y MCP, automatización de procesos, generación de imagen/video.</span></li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">
+  <div>© 2026 Santiago Sanchez Caspani · Buenos Aires, Argentina</div>
+  <div><a class="pill" href="https://github.com/SantiagoSanchezAI" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp; <a class="pill" href="https://www.linkedin.com/in/santiago-sanchez-ai" target="_blank" rel="noopener">LinkedIn</a></div>
+</div></footer>
+
+<script>
+(function(){
+  var html=document.documentElement,btn=document.getElementById('langBtn');
+  function set(l){html.lang=l;btn.textContent=l==='en'?'ES':'EN';try{localStorage.setItem('lang',l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  var nav=(navigator.language||'en').toLowerCase().indexOf('es')===0?'es':'en';
+  set(saved||nav);
+  btn.addEventListener('click',function(){set(html.lang==='en'?'es':'en')});
+})();
+</script>
+</body>
+</html>
